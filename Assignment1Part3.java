@@ -99,37 +99,46 @@ public class Assignment1Part3 extends KarelTheRobot{
                     putBeeper();
                 }
                 else{
-                    move();
-                    if (beepersPresent() && facingEast()){
-                        turnAround();
+                    if (!frontIsBlocked()){
                         move();
-                        move();
-                        pickBeeper();
-                        turnAround();
-                        move();
-                        turnRight();
-                        goTowardsTheFrontWall();
-                        putBeeper();
+                        if (beepersPresent() && facingEast()){
+                            turnAround();
+                            move();
+                            move();
+                            pickBeeper();
+                            turnAround();
+                            move();
+                            turnRight();
+                            goTowardsTheFrontWall();
+                            putBeeper();
 
-                    }
-                    else if (beepersPresent() && facingWest()){
-                        turnAround();
-                        move();
-                        move();
-                        pickBeeper();
-                        turnAround();
-                        move();
-                        turnLeft();
-                        goTowardsTheFrontWall();
-                        putBeeper();
+                        }
+                        else if (beepersPresent() && facingWest()){
+                            turnAround();
+                            move();
+                            move();
+                            pickBeeper();
+                            turnAround();
+                            move();
+                            turnLeft();
+                            goTowardsTheFrontWall();
+                            putBeeper();
+                        }
+                        else{
+                            turnAround();
+                            move();
+                            move();
+                            turnAround();
+                            pickBeeper();
+                        }
                     }
                     else{
                         turnAround();
                         move();
-                        move();
                         turnAround();
                         pickBeeper();
                     }
+
                 }
 
             }
@@ -199,10 +208,10 @@ public class Assignment1Part3 extends KarelTheRobot{
     public void run() throws Exception{
         putBeeper();
         if (!frontIsBlocked()){
-//            * if the world's southern wall has more than 1 cell
+//          * if the world's southern wall has more than 1 cell
             move();
             if(!frontIsBlocked()){
-//                * if the world's southern wall has more than 2 cells
+//              * if the world's southern wall has more than 2 cells
                 turnLeft();
                 move();
                 putBeeper();
